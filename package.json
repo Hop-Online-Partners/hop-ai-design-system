@@ -1,0 +1,30 @@
+{
+  "name": "@hop-ai/design-system",
+  "version": "1.0.0",
+  "description": "The official design system for Hop AI — colors, typography, components, and templates for energetic, human-first AI marketing work.",
+  "keywords": [
+    "design-system",
+    "hop-ai",
+    "geoforge",
+    "brand",
+    "tokens",
+    "tailwind",
+    "b2b-marketing"
+  ],
+  "author": "Hop AI <hello@hopai.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "https://hopai.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hop-ai/hop-ai-design-system"
+  },
+  "main": "tokens/tailwind.config.js",
+  "files": [
+    "tokens",
+    "components",
+    "templates",
+    "assets",
+    "docs"
+  ]
+}

@@ -1,0 +1,71 @@
+/*
+ * Hop AI Design System — Typography Tokens
+ *
+ * Headings: Work Sans (tight, confident, energetic)
+ * Body: Inter (clean, readable, modern)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&family=Inter:wght@400;500&display=swap');
+
+:root {
+  /* === Font stacks === */
+  --font-heading: 'Work Sans', Arial, Helvetica, sans-serif;
+  --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  /* === Type scale === */
+  --text-h1: 3.75rem;     /* 60px — Hero headings */
+  --text-h2: 3rem;        /* 50px — Section headings */
+  --text-h3: 1.875rem;    /* 30px — Sub-sections */
+  --text-h4: 1.25rem;     /* 20px — Component headings */
+  --text-body: 1rem;      /* 16px — Paragraphs */
+  --text-small: 0.875rem; /* 14px — Labels, captions */
+  --text-xs: 0.75rem;     /* 12px — Metadata, footnotes */
+
+  /* === Weights === */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  /* === Line heights === */
+  --leading-heading: 1.2;
+  --leading-body: 1.5;
+  --leading-tight: 1.1;
+
+  /* === Letter spacing === */
+  --tracking-heading: -0.01em;
+  --tracking-body: 0;
+}
+
+/* === Base typography === */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+h1 { font-size: var(--text-h1); font-weight: var(--weight-black); }
+h2 { font-size: var(--text-h2); font-weight: var(--weight-bold); }
+h3 { font-size: var(--text-h3); font-weight: var(--weight-semibold); }
+h4 { font-size: var(--text-h4); font-weight: var(--weight-semibold); }
+
+/* === Utility classes === */
+.text-muted { color: var(--text-secondary); }
+.text-brand { color: var(--brand-primary); }
+.text-label {
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}

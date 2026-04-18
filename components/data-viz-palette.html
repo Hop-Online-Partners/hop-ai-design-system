@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hop AI — Data Viz Palette</title>
+  <link rel="stylesheet" href="../tokens/colors.css">
+  <link rel="stylesheet" href="../tokens/typography.css">
+  <link rel="stylesheet" href="../tokens/spacing.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { padding: 48px; background: var(--bg-elevated); font-family: var(--font-body); color: var(--text-primary); }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 3rem; margin-bottom: 8px; }
+    h3 { margin: 48px 0 16px; }
+
+    .swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .swatch {
+      border-radius: var(--radius-md);
+      padding: 16px;
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+    .swatch .hex { font-family: monospace; opacity: 0.9; font-size: 0.75rem; margin-top: 4px; }
+
+    .chart-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px; }
+
+    .chart-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+    .chart-card h4 { margin-bottom: 16px; font-family: var(--font-heading); font-size: 1.125rem; }
+
+    /* Bar chart */
+    .bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 180px; padding: 16px 0; }
+    .bar { flex: 1; border-radius: 4px 4px 0 0; position: relative; }
+    .bar::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -24px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Legend */
+    .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; font-size: 0.875rem; }
+    .legend-item { display: flex; align-items: center; gap: 8px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
+
+    /* Donut */
+    .donut { width: 160px; height: 160px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Data viz palette</h1>
+    <p class="text-muted">Ordered color palette for charts. Use in this exact order for series 1–6.</p>
+
+    <div class="swatches" style="margin-top: 32px;">
+      <div class="swatch" style="background:#FE3D3E;">viz-1<div class="hex">#FE3D3E</div></div>
+      <div class="swatch" style="background:#7D3EFE;">viz-2<div class="hex">#7D3EFE</div></div>
+      <div class="swatch" style="background:#97EAD2; color:#282A3E;">viz-3<div class="hex">#97EAD2</div></div>
+      <div class="swatch" style="background:#282A3E;">viz-4<div class="hex">#282A3E</div></div>
+      <div class="swatch" style="background:#6B7280;">viz-5<div class="hex">#6B7280</div></div>
+      <div class="swatch" style="background:#E5E7EB; color:#282A3E;">viz-6<div class="hex">#E5E7EB</div></div>
+    </div>
+
+    <h3>Example: Share of voice by LLM</h3>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h4>Bar chart (5 series)</h4>
+        <div class="bar-chart">
+          <div class="bar" style="height: 80%; background: #FE3D3E;" data-label="ChatGPT"></div>
+          <div class="bar" style="height: 65%; background: #7D3EFE;" data-label="Perplexity"></div>
+          <div class="bar" style="height: 50%; background: #97EAD2;" data-label="Gemini"></div>
+          <div class="bar" style="height: 35%; background: #282A3E;" data-label="Copilot"></div>
+          <div class="bar" style="height: 20%; background: #6B7280;" data-label="Claude"></div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#FE3D3E;"></span>ChatGPT</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#7D3EFE;"></span>Perplexity</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#97EAD2;"></span>Gemini</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#282A3E;"></span>Copilot</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#6B7280;"></span>Claude</div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h4>Donut chart (4 series)</h4>
+        <svg class="donut" viewBox="0 0 42 42">
+          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#E5E7EB" stroke-width="4"/>
+          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#FE3D3E" stroke-width="4"
+                  stroke-dasharray="40 60" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#7D3EFE" stroke-width="4"
+                  stroke-dasharray="25 75" stroke-dashoffset="-15" transform="rotate(-90 21 21)"/>
+          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#97EAD2" stroke-width="4"
+                  stroke-dasharray="20 80" stroke-dashoffset="-40" transform="rotate(-90 21 21)"/>
+          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#282A3E" stroke-width="4"
+                  stroke-dasharray="15 85" stroke-dashoffset="-60" transform="rotate(-90 21 21)"/>
+        </svg>
+        <div class="legend" style="justify-content:center;">
+          <div class="legend-item"><span class="legend-dot" style="background:#FE3D3E;"></span>Hop AI (40%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#7D3EFE;"></span>Competitor A (25%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#97EAD2;"></span>Competitor B (20%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#282A3E;"></span>Other (15%)</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Gradient usage</h3>
+    <div style="background: linear-gradient(135deg, #FE3D3E 0%, #7D3EFE 100%); border-radius: var(--radius-lg); padding: 48px; color: white; text-align: center;">
+      <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800;">Hero gradient</div>
+      <div style="opacity: 0.9; margin-top: 8px;">Primary → Secondary. Use for hero sections and high-emphasis backgrounds.</div>
+    </div>
+  </div>
+</body>
+</html>

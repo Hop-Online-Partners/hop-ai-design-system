@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hop AI — AI Visibility Report Template</title>
+  <link rel="stylesheet" href="../tokens/colors.css">
+  <link rel="stylesheet" href="../tokens/typography.css">
+  <link rel="stylesheet" href="../tokens/spacing.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-surface); }
+
+    /* === Cover section === */
+    .cover {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 96px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(254, 61, 62, 0.3) 0%, transparent 70%);
+    }
+    .cover-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .cover-eyebrow {
+      display: inline-block;
+      color: var(--brand-tertiary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      padding: 6px 16px;
+      border: 1px solid rgba(151, 234, 210, 0.3);
+      border-radius: 9999px;
+    }
+    .cover h1 {
+      color: #fff;
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .cover-sub {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .meta-item .meta-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 4px;
+    }
+    .meta-item .meta-value { font-size: 1rem; color: #fff; font-weight: 500; }
+
+    /* === Stat strip === */
+    .stat-strip {
+      background: var(--bg-elevated);
+      padding: 48px;
+    }
+    .stat-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .strip-stat {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border-top: 3px solid var(--brand-primary);
+    }
+    .strip-stat:nth-child(2) { border-top-color: var(--brand-secondary); }
+    .strip-stat:nth-child(3) { border-top-color: var(--brand-tertiary); }
+    .strip-stat:nth-child(4) { border-top-color: var(--text-primary); }
+
+    .strip-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .strip-value {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .strip-delta { font-size: 0.875rem; color: var(--text-secondary); }
+
+    /* === Content sections === */
+    .section { padding: 64px 48px; max-width: 1000px; margin: 0 auto; }
+    .section h2 {
+      font-size: 2.25rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .section-lede {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 720px;
+    }
+
+    /* === Data table === */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .data-table th {
+      background: var(--bg-elevated);
+      padding: 16px;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-default);
+    }
+    .data-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-default);
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .pill-success { background: rgba(151, 234, 210, 0.3); color: #0F6F57; }
+    .pill-warn { background: rgba(254, 61, 62, 0.1); color: #BF1F20; }
+
+    /* === Takeaway card === */
+    .takeaway {
+      background: var(--bg-tint-warm);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border-left: 4px solid var(--brand-primary);
+      margin: 32px 0;
+    }
+    .takeaway h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    /* === Footer === */
+    .footer {
+      background: var(--bg-dark);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .footer a { color: var(--brand-tertiary); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header class="cover">
+    <div class="cover-inner">
+      <span class="cover-eyebrow">AI Visibility Analysis</span>
+      <h1>How [Brand] shows up in AI search</h1>
+      <p class="cover-sub">A benchmark of brand presence across ChatGPT, Perplexity, Gemini, Copilot, and Claude — and what to do about it.</p>
+      <div class="cover-meta">
+        <div class="meta-item">
+          <div class="meta-label">Prepared for</div>
+          <div class="meta-value">[Client name]</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Prepared by</div>
+          <div class="meta-value">Hop AI</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Date</div>
+          <div class="meta-value">Month YYYY</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stat-strip">
+    <div class="stat-strip-inner">
+      <div class="strip-stat">
+        <div class="strip-label">Share of voice</div>
+        <div class="strip-value">42%</div>
+        <div class="strip-delta">vs 61% category leader</div>
+      </div>
+      <div class="strip-stat">
+        <div class="strip-label">Prompts tested</div>
+        <div class="strip-value">240</div>
+        <div class="strip-delta">across 5 LLMs</div>
+      </div>
+      <div class="strip-stat">
+        <div class="strip-label">Mention rate</div>
+        <div class="strip-value">18%</div>
+        <div class="strip-delta">of relevant queries</div>
+      </div>
+      <div class="strip-stat">
+        <div class="strip-label">Citation gap</div>
+        <div class="strip-value">−34</div>
+        <div class="strip-delta">vs top competitor</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Executive summary</h2>
+    <p class="section-lede">
+      [Brand] appears in AI answers for high-intent queries far less often than its category peers — a meaningful gap in a channel that now drives a growing share of B2B research and evaluation.
+    </p>
+    <p>Body paragraph sets up the rest of the report. Two or three sentences of narrative context explaining what the reader is about to see and why it matters commercially.</p>
+
+    <div class="takeaway">
+      <h3>The takeaway</h3>
+      <p>The brand is most exposed on comparison and evaluation queries where buyers are late in the funnel. Closing that gap is the single highest-leverage GEO investment over the next two quarters.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Visibility by platform</h2>
+    <p class="section-lede">How [Brand] performs against the top three competitors across each LLM.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>[Brand]</th>
+          <th>Competitor A</th>
+          <th>Competitor B</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>ChatGPT</td><td>42%</td><td>68%</td><td>55%</td><td><span class="pill pill-warn">Behind</span></td></tr>
+        <tr><td>Perplexity</td><td>51%</td><td>62%</td><td>48%</td><td><span class="pill pill-warn">Close</span></td></tr>
+        <tr><td>Gemini</td><td>38%</td><td>71%</td><td>52%</td><td><span class="pill pill-warn">Behind</span></td></tr>
+        <tr><td>Copilot</td><td>45%</td><td>40%</td><td>35%</td><td><span class="pill pill-success">Leading</span></td></tr>
+        <tr><td>Claude</td><td>48%</td><td>55%</td><td>42%</td><td><span class="pill pill-success">Close</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="footer">
+    <p>Prepared by <a href="https://hopai.com">Hop AI</a> · Generative Engine Optimization for B2B</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hop AI — Hero Dark</title>
+  <link rel="stylesheet" href="../tokens/colors.css">
+  <link rel="stylesheet" href="../tokens/typography.css">
+  <link rel="stylesheet" href="../tokens/spacing.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .hero-dark {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 96px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative gradient accent */
+    .hero-dark::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(254, 61, 62, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-dark::after {
+      content: '';
+      position: absolute;
+      bottom: -300px;
+      left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(125, 62, 254, 0.20) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      color: var(--brand-tertiary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      padding: 6px 16px;
+      border: 1px solid rgba(151, 234, 210, 0.3);
+      border-radius: 9999px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 4.5rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: #fff;
+      max-width: 900px;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #FE3D3E 0%, #7D3EFE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-hero {
+      background: var(--brand-primary);
+      color: #fff;
+      padding: 16px 32px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary-hero:hover { opacity: 0.9; }
+
+    .btn-ghost-hero {
+      background: transparent;
+      color: #fff;
+      padding: 16px 32px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-ghost-hero:hover { background: rgba(255, 255, 255, 0.1); }
+
+    /* Logo bar */
+    .logo-bar {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .logo-bar-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .logo-placeholder {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-dark">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">GEOforge Platform</span>
+      <h1 class="hero-title">
+        Your brand should appear in every <span class="highlight">AI answer</span> that matters.
+      </h1>
+      <p class="hero-sub">
+        GEOforge is the Generative Engine Optimization platform purpose-built for B2B.
+        Surface your brand inside ChatGPT, Perplexity, Gemini, Copilot, and Claude — where your buyers actually search now.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary-hero">Book a Demo</button>
+        <button class="btn-ghost-hero">See Platform</button>
+      </div>
+
+      <div class="logo-bar">
+        <span class="logo-bar-label">Trusted by</span>
+        <span class="logo-placeholder">Amplitude</span>
+        <span class="logo-placeholder">Horizon3.ai</span>
+        <span class="logo-placeholder">Nona Biosciences</span>
+        <span class="logo-placeholder">Aria Systems</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/*
+ * Hop AI Design System — Color Tokens
+ *
+ * These are the exact colors to use. Do not approximate or substitute.
+ * Every visual output should use these tokens via var(--token-name).
+ */
+
+:root {
+  /* === Brand Accents === */
+  /* Use for CTAs, highlights, supporting accents */
+  --brand-primary: #FE3D3E;       /* Buttons, links, highlights, CTAs */
+  --brand-secondary: #7D3EFE;     /* Supporting accent, focus states */
+  --brand-tertiary: #97EAD2;      /* Fresh accent, highlights, tags */
+
+  /* === Text === */
+  --text-primary: #282A3E;        /* Main body and headings */
+  --text-secondary: #6B7280;      /* Muted / secondary text */
+  --text-inverse: #FFFFFF;        /* Text on dark backgrounds */
+
+  /* === Surfaces === */
+  --bg-surface: #FFFFFF;          /* Primary background */
+  --bg-elevated: #F9FAFB;         /* Cards, modals, panels */
+  --bg-dark: #282A3E;             /* Dark hero / header background */
+
+  /* === Tinted Section Backgrounds === */
+  /* Use sparingly for section variety */
+  --bg-tint-neutral: #F4F4F5;     /* Neutral light gray */
+  --bg-tint-warm: #FFF5F5;        /* Primary-tinted */
+  --bg-tint-cool: #F8F5FF;        /* Secondary-tinted */
+  --bg-tint-fresh: #FAFEFD;       /* Tertiary-tinted */
+
+  /* === Borders === */
+  --border-default: #E5E7EB;      /* Dividers, outlines */
+  --border-focus: #7D3EFE;        /* Focus ring color */
+
+  /* === Status (derived, use sparingly) === */
+  --status-success: #10B981;
+  --status-warning: #F59E0B;
+  --status-error: #FE3D3E;        /* Reuses brand primary */
+
+  /* === Data Viz Palette (ordered) === */
+  --viz-1: #FE3D3E;               /* Primary / most important series */
+  --viz-2: #7D3EFE;               /* Second series */
+  --viz-3: #97EAD2;               /* Third series */
+  --viz-4: #282A3E;               /* Fourth series */
+  --viz-5: #6B7280;               /* Baseline / muted */
+  --viz-6: #E5E7EB;               /* Comparison / reference */
+
+  /* === Gradients === */
+  --gradient-brand: linear-gradient(135deg, #FE3D3E 0%, #7D3EFE 100%);
+  --gradient-subtle: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+}
+
+/* Contrast rule: minimum 4.5:1 for all text. Meet WCAG 2.1 AA. */
